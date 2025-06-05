@@ -9,7 +9,9 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+   "wandersync-backend.onrender.com",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
