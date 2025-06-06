@@ -1,12 +1,14 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Itinerary(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="itineraries")
     title = models.CharField(max_length=255)
     destination = models.CharField(max_length=255)
     days = models.PositiveIntegerField()
     summary = models.TextField()
-    tags = models.JSONField(default=list)  # store list of tags
+    tags = models.JSONField(default=list)
     recommended_time = models.CharField(max_length=100)
     created_at = models.DateTimeField(default=timezone.now)
 
